@@ -1,0 +1,36 @@
+body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/* Navigation and Footer*/
+nav, footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    padding: 0.5rem 0;
+}
+
+/* Home Page */
+.hero-body{
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: center;
+    padding-top: 10rem;
+    gap: 2rem;
+    flex: 1;
+}
+.hero-body h1,.hero-body h2,.hero-body p{
+    margin:0;
+}
+
+/* Mobile device layout */
+@media (max-width:690px) {
+    .hero-body{
+        padding-top: 20%;
+    }
+}

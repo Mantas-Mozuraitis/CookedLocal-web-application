@@ -1,0 +1,67 @@
+:root{
+    --color-one:#FFC5C5;
+    --color-one-30:#FFC5C530;
+    --color-two:#FFEBD8;
+    --color-three:#C7DCA7;
+    --color-four:#89B9AD;
+}
+html{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-size: 100%;
+}
+body{
+    background-color: var(--color-four);
+    background-image: linear-gradient(180deg, rgba(137,185,173,0.90) 0%, rgba(137,185,173,0.65) 90%),url('/images/hero-background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--color-three);
+}
+
+/* Navigation */
+nav a{
+    text-decoration: none;
+    color: var(--color-three);
+    font-size: 1.5rem;
+    transition: color 0.2s linear;
+}
+nav a:hover{
+    color: var(--color-one);
+}
+
+/* Home Page */
+.hero-body h1{
+    font-size: 5rem;
+}
+.hero-body h2{
+    font-size: 2.5rem;
+}
+.hero-body p{
+    font-size: 2rem;
+}
+.hero-body a{
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: var(--color-one) solid 2px;
+    border-radius: 5px;
+    color: var(--color-one);
+    font-size: 1.5rem;
+    transition: background-color 0.20s linear;
+}
+.hero-body a:hover{
+    background-color: var(--color-one-30);
+}
+/* Footer */
+footer{
+    backdrop-filter: blur(5px);
+}
+
+/* Mobile device layout */
+@media (max-width:690px) {
+    .hero-body h2, .hero-body p, nav a, footer, .hero-body a{
+        font-size: smaller;
+    }
+    .hero-body h1{
+        font-size: 2.5rem;
+    }
+}
