@@ -23,6 +23,23 @@ body{
     display: flex;
     gap: 1rem;
 }
+
+/* Login Page */
+.hero-body form{
+    display: flex;
+    flex-direction: column;
+    width: 650px;
+    height: 350px;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+.hero-body form > *{
+    padding: 0.2rem;
+    width: 100%;
+}
+
+
 /*Footer*/
 footer{
     display: flex;

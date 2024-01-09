@@ -2,6 +2,14 @@
 <body>
     <div class="hero-body">
         <h1>Register</h1>
+        <form method="post">
+            <input id="username" name="username" type="text" autocomplete="username" placeholder="Enter Username" required autofocus>
+            <input id="current-password" name="password" type="password" autocomplete="current-password" placeholder="Enter Password" required>
+            <section class="btn-container">
+                <button class="btn-form" type="submit" formaction="/register">Register</button>
+                <a class="btn-form" href="/login">Sign in</a>
+            </section>
+        </form>
     </div>
 </body>
 <%-include ("partials/footer.ejs")%>
