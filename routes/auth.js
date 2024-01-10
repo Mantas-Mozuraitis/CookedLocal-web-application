@@ -42,8 +42,8 @@ passport.deserializeUser(function(user, cb) {
 router.get("/login", (req,res)=>{
     res.render("login.ejs");
 })
-router.post("/login", passport.authenticate('local', { failureRedirect: "/login" }),(req, res)=>{
-    res.redirect("/dashboard");
+router.post("/login", passport.authenticate("local", { failureRedirect: "/login" }),(req, res)=>{
+    res.redirect("/");
 })
 
 // LOGOUT ROUTE
@@ -58,14 +58,20 @@ router.get("/logout", (req, res, next)=>{
 router.get("/register", (req, res)=>{
     res.render("register.ejs");
 });
-router.post("/register", (req,res)=>{
+router.post("/register", (req,res,next)=>{
     bcrypt.hash(req.body.password, 10, async function(err, hash) {
-        if (err) {return err;}
-        const user = await db.query("INSERT INTO users (username, password) VALUES ($1,$2) RETURNING *", [req.body.username,hash]);
-        console.log("Message: user has been stored successfully");
-        res.redirect("/");
+        if (err) {return next(err);}
+        try {
+            const user = await db.query("INSERT INTO users (username, password) VALUES ($1,$2) RETURNING *", [req.body.username,hash]);
+            req.login(user.rows[0], (err) =>{
+                if (err) {return next(err);}
+                console.log("Message: user has been stored successfully");
+                res.redirect("/");
+            });
+        } catch (error) {
+            return next(err);
+        }
     });
-    
 })
 
 // export as default
