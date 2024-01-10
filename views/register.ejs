@@ -2,6 +2,9 @@
 <body>
     <div class="hero-body">
         <h1>Register</h1>
+        <div class="message">
+            <p><%=locals.message||locals.messages.error%><br></p>
+        </div>
         <form method="post">
             <input id="username" name="username" type="text" autocomplete="username" placeholder="Enter Username" required autofocus>
             <input id="current-password" name="password" type="password" autocomplete="current-password" placeholder="Enter Password" required>

@@ -1,7 +1,6 @@
 // Imported npm packages
 import express from "express";
 import bodyParser from "body-parser";
-import bcrypt from "bcrypt";
 import passport from "passport";
 import session from "express-session";
 // Custom routers
