@@ -16,12 +16,12 @@ router.use(flash());
 passport.use(new LocalStrategy(function verify(username, password, cb) {
     db.query("SELECT * FROM users WHERE username = $1", [username], function(error, row) {
         if (error) { return cb(error); }
-        if (row.rowCount === 0) { return cb(null, false, { message: "⚠️ Username does not exist" });}
+        if (row.rowCount === 0) { return cb(null, false, { message: "Username does not exist" });}
     
         bcrypt.compare(password, row.rows[0].password, function(error, result) {
             if (error) { return cb(error); }
             if (!result) {
-                return cb(null, false, { message: "⚠️ Incorrect password, please try again" });
+                return cb(null, false, { message: "Incorrect password, please try again" });
             }
             return cb(null, row.rows[0]);
         });
@@ -84,13 +84,13 @@ router.post("/register", async(req,res,next)=>{
                     }
                 });
             }else{
-                res.redirect("/register?message=⚠️ Username already exists");
+                res.redirect("/register?message=Username already exists");
             }
         } catch (error) {
             return next(error);
         }
     }else{
-        res.redirect("/register?message=⚠️ Passwords do not match");
+        res.redirect("/register?message=Passwords do not match");
     }
 })
 

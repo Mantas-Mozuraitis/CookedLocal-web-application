@@ -35,7 +35,7 @@ body{
     text-decoration: none;
     padding: 0.5rem 1rem;
     border: var(--color-one) solid 2px;
-    border-radius: 5px;
+    border-radius: 10px;
     color: var(--color-one);
     font-size: 1.5rem;
     transition: background-color 0.20s linear;
@@ -53,6 +53,7 @@ body{
     background-color: transparent;
     border: var(--color-three) solid 2px;
     color: var(--color-three);
+    border-radius: 10px;
 }
 .hero-body form input::placeholder{
     color: var(--color-three-85);
@@ -67,7 +68,7 @@ body{
     text-align: center;
     padding: 0.5rem;
     border: var(--color-one) solid 2px;
-    border-radius: 5px;
+    border-radius: 10px;
     color: var(--color-one);
     font-size: 1.3rem;
     transition: background-color 0.20s linear;
@@ -94,5 +95,12 @@ footer{
     }
     .hero-body h1{
         font-size: 2.5rem;
+    }
+    /* LOGIN and REGISTER */
+    .hero-body form input{
+        font-size: 1rem;
+    }
+    .hero-body form .btn-form{
+        font-size: 1rem;
     }
 }

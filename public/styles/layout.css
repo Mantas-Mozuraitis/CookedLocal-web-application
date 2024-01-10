@@ -56,4 +56,11 @@ footer{
     .hero-body{
         padding-top: 20%;
     }
+    /* LOGIN and REGISTER */
+    .hero-body form{
+        width: 80%;
+        height: 350px;
+        align-items: center;
+        gap: 0.5rem;
+    }
 }
