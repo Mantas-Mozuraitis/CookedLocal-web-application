@@ -24,7 +24,7 @@ body{
     gap: 1rem;
 }
 
-/* Login Page */
+/* Login and Register Page */
 .hero-body form{
     display: flex;
     flex-direction: column;
@@ -32,13 +32,15 @@ body{
     height: 350px;
     align-items: center;
     gap: 1rem;
-    padding: 1rem;
 }
 .hero-body form > *{
-    padding: 0.2rem;
+    padding: 0.5rem;
     width: 100%;
 }
-
+.btn-container{
+    display: flex;
+    justify-content: center;
+}
 
 /*Footer*/
 footer{

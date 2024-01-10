@@ -2,15 +2,14 @@
 <body>
     <div class="hero-body">
         <h1>Register</h1>
-        <div class="message">
-            <p><%=locals.message||locals.messages.error%><br></p>
-        </div>
+        <p class="msg-err"><%=locals.message||locals.messages.error%><br></p>
         <form method="post">
-            <input id="username" name="username" type="text" autocomplete="username" placeholder="Enter Username" required autofocus>
-            <input id="current-password" name="password" type="password" autocomplete="current-password" placeholder="Enter Password" required>
+            <input id="username" name="username" type="text" placeholder="Enter Username" required autofocus>
+            <input id="current-password" name="password" type="password" placeholder="Enter Password" required>
+            <input id="repeat-password" name="re_password" type="password" placeholder="Re-enter Password" required>
             <section class="btn-container">
                 <button class="btn-form" type="submit" formaction="/register">Register</button>
-                <a class="btn-form" href="/login">Sign in</a>
+                <a class="btn-form" href="/login">Log in</a>
             </section>
         </form>
     </div>

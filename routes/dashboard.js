@@ -8,7 +8,9 @@ const router = express.Router();
 
 // USERS DASHBOARD ROUTE
 router.get("/dashboard", (req,res)=>{
-    res.render("dashboard.ejs", {username: req.user.username});
+    req.isAuthenticated()
+    ?res.render("dashboard.ejs", {username: req.user.username})
+    :res.redirect("/");
 })
 // export as default
 export default router;

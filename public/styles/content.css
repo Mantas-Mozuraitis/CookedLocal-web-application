@@ -3,7 +3,10 @@
     --color-one-30:#FFC5C530;
     --color-two:#FFEBD8;
     --color-three:#C7DCA7;
+    --color-three-50:#C7DCA750;
+    --color-three-85:#C7DCA785;
     --color-four:#89B9AD;
+    --color-five:#8ca862;  
 }
 html{
     font-family: 'Open Sans', sans-serif;
@@ -41,10 +44,23 @@ body{
     background-color: var(--color-one-30);
 }
 
-/* Login Page */
+/* Login and Register Page */
+.hero-body .msg-err{
+    color: var(--color-one);
+}
 .hero-body form input{
     font-size: 2rem;
+    background-color: transparent;
+    border: var(--color-three) solid 2px;
+    color: var(--color-three);
 }
+.hero-body form input::placeholder{
+    color: var(--color-three-85);
+}
+.hero-body form input:focus {
+    outline: none !important;
+    border-color: var(--color-one);
+  }
 .hero-body form .btn-form{
     cursor: pointer;
     background-color: transparent;
@@ -53,13 +69,19 @@ body{
     border: var(--color-one) solid 2px;
     border-radius: 5px;
     color: var(--color-one);
-    font-size: 1rem;
+    font-size: 1.3rem;
     transition: background-color 0.20s linear;
 }
-.btn-form:hover{
+.btn-container a:hover{
     background-color: var(--color-one-30);
 }
-
+.btn-container button{
+    color: var(--color-three) !important;
+    border-color: var(--color-three) !important;
+}
+.btn-container button:hover{
+    background-color: var(--color-three-50);
+}
 /* Footer */
 footer{
     backdrop-filter: blur(5px);
