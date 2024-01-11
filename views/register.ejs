@@ -5,8 +5,14 @@
         <p class="msg-err"><%=locals.message||locals.messages.error%><br></p>
         <form method="post">
             <input id="username" name="username" type="text" placeholder="Enter Username" required autofocus>
-            <input id="current-password" name="password" type="password" placeholder="Enter Password" required>
-            <input id="repeat-password" name="re_password" type="password" placeholder="Re-enter Password" required>
+            <input id="email" name="email" type="email" placeholder="Enter Email" required autofocus>
+            <input id="current_password" name="password" type="password" placeholder="Enter Password" required>
+            <input id="repeat_password" name="re_password" type="password" placeholder="Re-enter Password" required>
+            <select name="account_type" id="account_type" required>
+                <option value="" disabled selected hidden>Select an Account Type</option>
+                <option value="seller">Seller</option>
+                <option value="buyer">Buyer</option>
+            </select>
             <section class="btn-container">
                 <button class="btn-form" type="submit" formaction="/register">Register</button>
                 <a class="btn-form" href="/login">Log in</a>

@@ -31,7 +31,7 @@ passport.use(new LocalStrategy(function verify(username, password, cb) {
 // Creates a session cookie
 passport.serializeUser(function(user, cb) {
     process.nextTick(function() {
-      cb(null, { id: user.id, username: user.username });
+      cb(null, { id: user.id, username: user.username, account_type: user.account_type, email: user.email });
     });
 });
 // Destroys session cookie and gets all session data
@@ -73,7 +73,7 @@ router.post("/register", async(req,res,next)=>{
                 bcrypt.hash(req.body.password, 10, async function(error, hash) {
                     if (error) {return next(error);}
                     try {
-                        const user = await db.query("INSERT INTO users (username, password) VALUES ($1,$2) RETURNING *", [req.body.username,hash]);
+                        const user = await db.query("INSERT INTO users (username, password, account_type, email) VALUES ($1,$2,$3,$4) RETURNING *", [req.body.username,hash,req.body.account_type, req.body.email]);
                         req.login(user.rows[0], (error) =>{
                             if (error) {return next(error);}
                             console.log("Message: user has been stored successfully");
@@ -91,6 +91,34 @@ router.post("/register", async(req,res,next)=>{
         }
     }else{
         res.redirect("/register?message=Passwords do not match");
+    }
+})
+
+// CHANGE PASSWORD ROUTE
+router.post("/change-password", async(req,res)=>{
+    try {
+        const password = (await db.query("SELECT * FROM users WHERE username = $1", [req.user.username])).rows[0].password;
+        bcrypt.compare(req.body.current_password,password, (error, result)=>{
+            if(error){return error;}
+            if(!result){res.redirect("/dashboard?message=Current password is incorrect")}
+            else{
+                if (req.body.new_password === req.body.renew_password) {
+                    bcrypt.hash(req.body.new_password, 10, async(error, hash)=>{
+                        if(error){return error;}
+                        try {
+                            await db.query("UPDATE users SET password = $1 WHERE username = $2", [hash, req.user.username]);
+                            res.redirect("/logout");
+                        } catch (error) {
+                            console.error("Error: ", error.message);s
+                        }
+                    });
+                }else{
+                    res.redirect("/dashboard?message=Passwords do not match")
+                }
+            }
+        });
+    } catch (error) {
+        console.error("Error: ", error.message);
     }
 })
 

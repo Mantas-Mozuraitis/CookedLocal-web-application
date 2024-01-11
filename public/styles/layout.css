@@ -42,6 +42,71 @@ body{
     justify-content: center;
 }
 
+/* Dashboard */
+.dashboard{
+    padding: 0;
+}
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+nav .left, nav .right{
+    align-items: center;
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.2rem 0.4rem;
+}
+.dashboard main{
+    display: grid;
+    width: 95%;
+    gap: 0.5rem;
+    grid-template: auto / 2fr 1fr;
+}
+.dashboard main > *{
+    padding: 0.5rem;
+    min-height: 250px;
+}
+/* Dashboard profile section */
+.dashboard main .profile{
+    grid-column: span 2;
+}
+.profile .profile-container{
+    display: flex;
+    justify-content: space-around;
+    gap: 0.5rem;
+}
+.profile .profile-container > *{
+    width: 100%;
+    min-height: 250px;
+    display: flex;
+}
+/* personal details */
+.personal-details, .change-password, .location-details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.personal-details table td{
+    padding: 0.5rem 1rem;
+}
+.dashboard main .calendar{
+    grid-column: 2/3;
+}
+.dashboard main .orders{
+    grid-area: 2/1/2/2;
+}
+.dashboard main .dishes{
+    grid-column: span 2;
+}
+/* change password */
+.change-password form, .personal-details table{
+    width: 80%;
+}
+.change-password form .btn-form{
+    width: 200px;
+}
+
 /*Footer*/
 footer{
     display: flex;
@@ -62,5 +127,9 @@ footer{
         height: 350px;
         align-items: center;
         gap: 0.5rem;
+    }
+    /* DASHBOARD */
+    .dashboard{
+        padding: 0;
     }
 }

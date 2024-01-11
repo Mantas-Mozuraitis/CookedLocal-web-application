@@ -1,9 +1,59 @@
 <%-include ("partials/header.ejs")%>
 <body>
-    <div class="hero-body">
-        <h2>- Dashboard -</h2>
-        <h1><%=username%></h1>
-        <a href="/logout">Log out</a>
+    <div class="hero-body dashboard">
+        <%-include ("partials/navigation.ejs")%>
+        <main>
+            <section class="profile">
+                <h2>Profile</h2>
+                <div class="profile-container">
+                    <div class="personal-details">
+                        <h3>Personal details</h3>
+                        <table>
+                            <tr>
+                                <td>Username</td>
+                                <td><%=username%></td>
+                            </tr>
+                            <tr>
+                                <td>Account type</td>
+                                <td><%=account_type%></td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td><%=email%></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="change-password">
+                        <h3>Change password</h3>
+                        <p class="msg-err"><%=locals.message||locals.messages.error%><br></p>
+                        <form action="/change-password" method="POST">
+                            <input type="password" id="current_password" name="current_password" placeholder="Enter current password" required>
+                            <input type="password" id="new_password" name="new_password" placeholder="Enter new password" required>
+                            <input type="password" id="renew_password" name="renew_password" placeholder="Repeat new password" required>
+                            <button type="submit" class="btn-form">Update password</button>
+                        </form>
+                    </div>
+                    <div class="location-details">
+                        <h3>Location details</h3>
+                    </div>
+                </div>
+            </section>
+
+            <section class="calendar">
+                <h2>Calendar</h2>
+
+            </section>
+
+            <section class="orders">
+                <h2>Orders</h2>
+
+            </section>
+            <%if (account_type === "buyer") {%>
+                <section class="dishes">
+                    <h2>Dishes in your area</h2>
+                </section>
+            <%}%>
+        </main>
     </div>
 </body>
 <%-include ("partials/footer.ejs")%>
