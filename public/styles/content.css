@@ -112,14 +112,14 @@ nav .right p{
 }
 /* Dashboard profile section */
 .profile .profile-container > *{
-    background-color: var(--color-five);
+    
 }
 /* Personal details */
 .personal-details table td{
-    background-color: var(--color-five);
+
 }
 .personal-details table{
-    background-color: black;
+    
 }
 /* Password change */
 .change-password form .btn-form:hover{
