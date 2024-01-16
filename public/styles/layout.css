@@ -100,10 +100,10 @@ nav .left, nav .right{
     grid-column: span 2;
 }
 /* change password */
-.change-password form, .personal-details table{
+.change-password form, .personal-details table, .location-details form{
     width: 80%;
 }
-.change-password form .btn-form{
+.change-password form .btn-form, .location-details form .btn-form{
     width: 200px;
 }
 

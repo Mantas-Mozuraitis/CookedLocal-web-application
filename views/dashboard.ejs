@@ -25,16 +25,21 @@
                     </div>
                     <div class="change-password">
                         <h3>Change password</h3>
-                        <p class="msg-err"><%=locals.message||locals.messages.error%><br></p>
                         <form action="/change-password" method="POST">
                             <input type="password" id="current_password" name="current_password" placeholder="Enter current password" required>
                             <input type="password" id="new_password" name="new_password" placeholder="Enter new password" required>
                             <input type="password" id="renew_password" name="renew_password" placeholder="Repeat new password" required>
                             <button type="submit" class="btn-form">Update password</button>
                         </form>
+                        <p class="msg-err"><%=locals.message||locals.messages.error%><br></p>
                     </div>
                     <div class="location-details">
                         <h3>Location details</h3>
+                        <form action="/set-location" method="POST">
+                            <input type="text" id="city" name="city" placeholder="Enter your city" required>
+                            <input type="text" id="country" name="country" placeholder="Enter your country" required>
+                            <button type="submit" class="btn-form">Update password</button>
+                        </form>
                     </div>
                 </div>
             </section>
