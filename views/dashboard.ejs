@@ -1,8 +1,19 @@
 <%-include ("partials/header.ejs")%>
-<body>
+<body class="dashboard-body">
     <div class="hero-body dashboard">
         <%-include ("partials/navigation.ejs")%>
         <main>
+            <%if (account_type === "buyer") {%>
+                <section class="dishes">
+                    <h2>Dishes in your area</h2>
+                    <p><%= city===null?"Please set your location to see orders":city+", "+country%></p>
+                </section>
+            <%}%>
+
+            <section class="orders">
+                <h2>Orders</h2>
+            </section>
+
             <section class="profile">
                 <h2>Profile</h2>
                 <div class="profile-container">
@@ -21,11 +32,19 @@
                                 <td>Email</td>
                                 <td><%=email%></td>
                             </tr>
+                            <tr>
+                                <td>Country</td>
+                                <td><%=country%></td>
+                            </tr>
+                            <tr>
+                                <td>City</td>
+                                <td><%=city%></td>
+                            </tr>
                         </table>
                     </div>
                     <div class="change-password">
                         <h3>Change password</h3>
-                        <form action="/change-password" method="POST">
+                        <form class="dashboard-form" action="/change-password" method="POST">
                             <input type="password" id="current_password" name="current_password" placeholder="Enter current password" required>
                             <input type="password" id="new_password" name="new_password" placeholder="Enter new password" required>
                             <input type="password" id="renew_password" name="renew_password" placeholder="Repeat new password" required>
@@ -35,29 +54,24 @@
                     </div>
                     <div class="location-details">
                         <h3>Location details</h3>
-                        <form action="/set-location" method="POST">
-                            <input type="text" id="city" name="city" placeholder="Enter your city" required>
-                            <input type="text" id="country" name="country" placeholder="Enter your country" required>
-                            <button type="submit" class="btn-form">Update password</button>
+                        <form class="dashboard-form" action="/set-location" method="POST">
+                            <select name="country" id="country" required>
+                                <option value="" disabled selected hidden>Select country</option>
+                                <option value="United Kingdom">United Kingdom</option>
+                            </select>
+
+                            <select name="city" id="city" required>
+                                <option value="" disabled selected hidden>Select city</option>
+                                <option value="London">London</option>
+                                <option value="Birmingham">Birmingham</option>
+                                <option value="Manchester">Manchester</option>
+                                <option value="Nottingham">Nottingham</option>
+                            </select>
+                            <button type="submit" class="btn-form">Update Location</button>
                         </form>
                     </div>
                 </div>
             </section>
-
-            <section class="calendar">
-                <h2>Calendar</h2>
-
-            </section>
-
-            <section class="orders">
-                <h2>Orders</h2>
-
-            </section>
-            <%if (account_type === "buyer") {%>
-                <section class="dishes">
-                    <h2>Dishes in your area</h2>
-                </section>
-            <%}%>
         </main>
     </div>
 </body>

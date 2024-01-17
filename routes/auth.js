@@ -74,6 +74,7 @@ router.post("/register", async(req,res,next)=>{
                     if (error) {return next(error);}
                     try {
                         const user = await db.query("INSERT INTO users (username, password, account_type, email) VALUES ($1,$2,$3,$4) RETURNING *", [req.body.username,hash,req.body.account_type, req.body.email]);
+                        await db.query("INSERT INTO locations (user_id, country, city) VALUES ($1, $2, $3)", [user.rows[0].id, null, null]);
                         req.login(user.rows[0], (error) =>{
                             if (error) {return next(error);}
                             console.log("Message: user has been stored successfully");

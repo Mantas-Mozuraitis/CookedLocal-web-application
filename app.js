@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // USER AUTHENTICATION ROUTER
 app.use("/", auth);
-// DASBOARD ROUTER
+// DASHBOARD ROUTER
 app.use("/", dasboard);
 
 // ROOT 

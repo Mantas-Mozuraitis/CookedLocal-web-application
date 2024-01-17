@@ -88,23 +88,25 @@ body{
 }
 
 /* Dashboard */
+.dashboard-body {
+    background-color: #D2E3C8;
+    background-image: none;
+    color: #88AB8E;
+}
 .dashboard a{
     text-decoration: none;
     padding: 0.2rem;
     border: none;
-    color: var(--color-one);
+    color: #88AB8E;
     font-size: 1.5rem;
 }
 nav {
-    background-color: var(--color-one-30);
-}
-nav .right p{
-    font-size: 1rem;
+    border-bottom: solid 1px #86A789;
 }
 .dashboard main > *{
-    border:5px solid var(--color-three-50);
-    backdrop-filter: blur(5px);
-    border-radius: 10px;
+    background-color: #c0d4b4;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius: 15px;
     font-size: 1.5rem;
 }
 .dashboard main section h2{
@@ -112,11 +114,29 @@ nav .right p{
 }
 /* Dashboard profile section */
 .profile .profile-container > *{
-    
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    margin:2rem 0;
+    border-radius: 15px;
+}
+.dashboard .msg-err{
+    color: red;
+}
+.dashboard-form input, .dashboard-form select{
+    border: #88AB8E solid 2px !important;
+    color: #88AB8E !important;
+    border-radius: 10px;
+}
+.dashboard-form input::placeholder{
+    color: #9faca1 !important;
+}
+
+.dashboard-form .btn-form{
+    border: #4F6F52 solid 2px !important; 
+    color: #4F6F52 !important;
 }
 /* Personal details */
 .personal-details table td{
-
+    border-left: solid black 1px;
 }
 .personal-details table{
     

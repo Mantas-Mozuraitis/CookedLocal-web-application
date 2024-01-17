@@ -55,12 +55,12 @@ nav .left, nav .right{
     align-items: center;
     display: flex;
     gap: 0.5rem;
-    padding: 0.2rem 0.4rem;
+    padding: 0.4rem;
 }
 .dashboard main{
     display: grid;
     width: 95%;
-    gap: 0.5rem;
+    gap: 1.5rem;
     grid-template: auto / 2fr 1fr;
 }
 .dashboard main > *{
@@ -73,35 +73,32 @@ nav .left, nav .right{
 }
 .profile .profile-container{
     display: flex;
-    justify-content: space-around;
-    gap: 0.5rem;
-}
-.profile .profile-container > *{
     width: 100%;
+    justify-content: space-around;
     min-height: 250px;
-    display: flex;
+    gap: 0.5rem;
 }
 /* personal details */
 .personal-details, .change-password, .location-details{
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 30%;
 }
 .personal-details table td{
     padding: 0.5rem 1rem;
 }
-.dashboard main .calendar{
-    grid-column: 2/3;
-}
+
 .dashboard main .orders{
-    grid-area: 2/1/2/2;
+    grid-column: span 2;
 }
 .dashboard main .dishes{
     grid-column: span 2;
+    text-align: center;
 }
 /* change password */
 .change-password form, .personal-details table, .location-details form{
-    width: 80%;
+    width: 90%;
 }
 .change-password form .btn-form, .location-details form .btn-form{
     width: 200px;
@@ -131,5 +128,15 @@ footer{
     /* DASHBOARD */
     .dashboard{
         padding: 0;
+    }
+    .profile .profile-container{
+        flex-direction: column;
+        gap: 0;
+    }
+    .profile .profile-container > *{
+        font-size: 1rem;
+    }
+    .dashboard-form{
+        max-height: 200px !important;
     }
 }
