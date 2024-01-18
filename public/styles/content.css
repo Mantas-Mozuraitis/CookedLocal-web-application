@@ -58,7 +58,7 @@ body{
 .hero-body form input::placeholder{
     color: var(--color-three-85);
 }
-.hero-body form input:focus, .hero-body form select:focus{
+.hero-body form input:focus, .hero-body form select:focus, .dashboard-form textarea:focus{
     outline: none !important;
     border-color: var(--color-one);
   }
@@ -112,6 +112,12 @@ nav {
 .dashboard main section h2{
     text-align: center;
 }
+/* Dish container */
+.dishes .dish-container{
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    margin:2rem 0;
+    border-radius: 15px;
+}
 /* Dashboard profile section */
 .profile .profile-container > *{
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
@@ -121,13 +127,18 @@ nav {
 .dashboard .msg-err{
     color: red;
 }
-.dashboard-form input, .dashboard-form select{
+.dashboard-form input, .dashboard-form select, .dashboard-form textarea{
     border: #88AB8E solid 2px !important;
     color: #88AB8E !important;
     border-radius: 10px;
+    background-color: transparent;
 }
-.dashboard-form input::placeholder{
+.dashboard-form input::placeholder, .dashboard-form textarea::placeholder{
     color: #9faca1 !important;
+}
+.dashboard-form textarea{
+    font-size: 2rem;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .dashboard-form .btn-form{

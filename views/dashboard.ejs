@@ -3,12 +3,35 @@
     <div class="hero-body dashboard">
         <%-include ("partials/navigation.ejs")%>
         <main>
-            <%if (account_type === "buyer") {%>
-                <section class="dishes">
-                    <h2>Dishes in your area</h2>
-                    <p><%= city===null?"Please set your location to see orders":city+", "+country%></p>
-                </section>
-            <%}%>
+            <section class="dishes">
+                <h2><%=account_type === "buyer"?"Dishes in your area":"Your listed dishes"%></h2>
+                <p>
+                    <%= city === null
+                      ? "Please set your location " +
+                        (account_type === "buyer" ? "to see available dishes" : "to list your dishes")
+                      : city + ", " + country
+                    %>
+                </p>
+                <div class="dishes-wrapper">
+                    <%if (account_type === "seller") {%>
+                        <form class="dashboard-form dish-container" action="/add-dish" method="POST">
+                            <input type="text" id="dish_title" name="dish_title" placeholder="Dish name" required>
+                            <textarea name="dish_description" id="dish_description" cols="30" rows="10" placeholder="Write your dish description" required></textarea>
+                            <input type="text" id="dish_price" name="dish_price" placeholder="Dish price" required>
+                            <button type="submit" class="btn-form">Add dish</button>
+                        </form>
+                    <%}%>
+                    <% if (locals.dishes) { %>
+                        <% dishes.map((dish) => { %>
+                          <div class="dish-container">
+                            <div class="dish-title"><%= dish.title %></div>
+                            <div class="dish-description"><%= dish.description %></div>
+                            <div class="dish-price"><%="Price per portion: £"+dish.price %></div>
+                          </div>
+                        <% }) %>
+                    <% } %>
+                </div>
+            </section>
 
             <section class="orders">
                 <h2>Orders</h2>

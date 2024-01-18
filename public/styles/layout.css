@@ -103,7 +103,26 @@ nav .left, nav .right{
 .change-password form .btn-form, .location-details form .btn-form{
     width: 200px;
 }
-
+/* Dishes section */
+.dishes .dish-container{
+    margin: 1rem !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0.5rem;
+    width: 300px;
+}
+.dishes-wrapper .dashboard-form > *{
+  font-size: 1.2rem !important;
+  width: 90%;
+}
+.dishes-wrapper{
+    display: flex;
+    white-space: nowrap; 
+    overflow-x: auto; 
+    width: 100%;
+}
 /*Footer*/
 footer{
     display: flex;
