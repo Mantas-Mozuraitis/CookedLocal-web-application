@@ -27,6 +27,11 @@
                             <div class="dish-title"><%= dish.title %></div>
                             <div class="dish-description"><%= dish.description %></div>
                             <div class="dish-price"><%="Price per portion: £"+dish.price %></div>
+                            <%if (account_type === "buyer") {%>
+                                <form class="order-form dashboard-form" action=<%=`/order-dish/${dish.id}`%> method="POST">
+                                    <button class="btn-form" type="submit">Order</button>
+                                </form>
+                            <%}%>
                           </div>
                         <% }) %>
                     <% } %>
@@ -35,6 +40,17 @@
 
             <section class="orders">
                 <h2>Orders</h2>
+                <% if (locals.orders) { %>
+                    <div class="dishes-wrapper">
+                        <% orders.map((order) => { %>
+                        <div class="dish-container">
+                            <div class="dish-title"><%= order.title %></div>
+                            <div class="dish-description"><%= order.description %></div>
+                            <div class="dish-price"><%="Price per portion: £"+order.price %></div>
+                        </div>
+                        <% }) %>
+                    </div>
+                <% } %>
             </section>
 
             <section class="profile">

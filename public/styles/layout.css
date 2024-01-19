@@ -104,7 +104,7 @@ nav .left, nav .right{
     width: 200px;
 }
 /* Dishes section */
-.dishes .dish-container{
+.dish-container{
     margin: 1rem !important;
     display: flex;
     flex-direction: column;
@@ -123,6 +123,17 @@ nav .left, nav .right{
     overflow-x: auto; 
     width: 100%;
 }
+
+/* Orders */
+.orders{
+    display: flex;
+    flex-direction: column;
+}
+.order-form{
+    width: 100% !important;
+    height: fit-content !important;
+}
+
 /*Footer*/
 footer{
     display: flex;
