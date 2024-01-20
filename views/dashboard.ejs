@@ -47,6 +47,11 @@
                             <div class="dish-title"><%= order.title %></div>
                             <div class="dish-description"><%= order.description %></div>
                             <div class="dish-price"><%="Price per portion: £"+order.price %></div>
+                            <%if (account_type === "seller") {%>
+                                <form class="order-form dashboard-form" action=<%=`/complete-order/${order.order_id}`%> method="POST">
+                                    <button class="btn-form" type="submit">Complete order</button>
+                                </form>
+                            <%}%>
                         </div>
                         <% }) %>
                     </div>

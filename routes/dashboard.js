@@ -12,8 +12,8 @@ router.get("/dashboard", async(req,res)=>{
         const location = await db.query("SELECT * FROM locations WHERE user_id = $1", [req.user.id]);
         const seller_dishes = await db.query("SELECT * FROM dishes WHERE user_id = $1", [req.user.id]);
         const buyer_dishes = await db.query("SELECT dishes.* FROM dishes JOIN users ON dishes.user_id = users.id JOIN locations ON users.id = locations.user_id WHERE locations.city = $1",[location.rows[0].city]);
-        const buyer_orders = await db.query("SELECT orders.id, dishes.id, dishes.title, dishes.description, dishes.price FROM orders JOIN dishes ON orders.dish_id = dishes.id WHERE orders.buyer_id = $1;", [req.user.id]);
-        const seller_orders = await db.query("SELECT orders.id, dishes.id, dishes.title, dishes.description, dishes.price FROM orders JOIN dishes ON orders.dish_id = dishes.id WHERE dishes.user_id = $1;", [req.user.id]);
+        const buyer_orders = await db.query("SELECT orders.id AS order_id, dishes.id, dishes.title, dishes.description, dishes.price FROM orders JOIN dishes ON orders.dish_id = dishes.id WHERE orders.buyer_id = $1;", [req.user.id]);
+        const seller_orders = await db.query("SELECT orders.id AS order_id, dishes.id, dishes.title, dishes.description, dishes.price FROM orders JOIN dishes ON orders.dish_id = dishes.id WHERE dishes.user_id = $1;", [req.user.id]);
         res.render("dashboard.ejs", {
             username: req.user.username, 
             account_type: req.user.account_type, 
@@ -52,6 +52,16 @@ router.post("/add-dish", async (req,res)=>{
 router.post("/order-dish/:id", async (req,res)=>{
     try {
         await db.query("INSERT INTO orders (dish_id, buyer_id) VALUES ($1, $2)", [req.params.id, req.user.id]);
+        res.redirect("/");
+    } catch (error) {
+        console.error("Error: ", error.message);
+        res.redirect("/");
+    }
+})
+
+router.post("/complete-order/:id", async (req,res)=>{
+    try {
+        await db.query("DELETE FROM orders WHERE id = $1", [req.params.id]);
         res.redirect("/");
     } catch (error) {
         console.error("Error: ", error.message);
