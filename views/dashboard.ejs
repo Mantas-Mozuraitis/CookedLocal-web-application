@@ -13,10 +13,10 @@
                     %>
                 </p>
                 <div class="dishes-wrapper">
-                    <%if (account_type === "seller") {%>
+                    <%if (account_type === "seller" && city !== null) {%>
                         <form class="dashboard-form dish-container" action="/add-dish" method="POST">
                             <input type="text" id="dish_title" name="dish_title" placeholder="Dish name" required>
-                            <textarea name="dish_description" id="dish_description" cols="30" rows="10" placeholder="Write your dish description" required></textarea>
+                            <textarea name="dish_description" id="dish_description" cols="30" rows="10" maxlength="150" placeholder="Write your dish description" required></textarea>
                             <input type="text" id="dish_price" name="dish_price" placeholder="Dish price" required>
                             <button type="submit" class="btn-form">Add dish</button>
                         </form>

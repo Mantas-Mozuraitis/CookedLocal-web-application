@@ -119,8 +119,8 @@ nav {
     border-radius: 15px;
 }
 .dish-description{
-    white-space:wrap;
     text-align: left;
+    white-space: normal;
 }
 /* Dashboard profile section */
 .profile .profile-container > *{

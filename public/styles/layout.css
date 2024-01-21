@@ -111,7 +111,8 @@ nav .left, nav .right{
     align-items: flex-start;
     justify-content: space-between;
     padding: 0.5rem;
-    width: 300px;
+    max-width: 300px;
+    min-width: 300px;
 }
 .dishes-wrapper .dashboard-form > *{
   font-size: 1.2rem !important;
@@ -119,7 +120,6 @@ nav .left, nav .right{
 }
 .dishes-wrapper{
     display: flex;
-    white-space: nowrap; 
     overflow-x: auto; 
     width: 100%;
 }
